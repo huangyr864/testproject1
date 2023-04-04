@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 构造函数
+        function Star(uname, age) {
+            this.uname = uname 
+            this.age = age
+        }
+        console.log(Star.prototype);
+        // 原型对象
+        Star.prototype.sing = function() {
+            console.log("唱歌");
+        }
+        const ldh = new Star("刘德华",55)
+        const zxy = new Star("张学友",56)
+        ldh.sing()//调用
+        zxy.sing()
+        console.log(ldh.sing === zxy.sing); //true
+
+        // 自己定义数组扩展方法 
+        // 最大值
+        Array.prototype.max = function() {
+            return Math.max(...this)
+        }
+        const arr = [1,3,5]
+        console.log(arr.max());
+
+        // 求和
+        Array.prototype.sum = function() {
+            return this.reduce( (prev, item) => prev+item, 0)
+        }
+        console.log([1,2,3,4].sum());
+
+        // constructor属性
+        console.log(Star.prototype.constructor === Star);
+        Star.prototype = {
+            // 重新指回创造这个原型对象的构造函数
+            constructor : Star,
+            sing : function() {
+                console.log("sing");
+            },
+            dance : function() {
+                console.log("dance");
+            }
+        }
+        console.log(Star.prototype); //此时没有contructor
+
+        // __proto__对象原型
+        function Starts() {}
+        const lly = new Starts()
+        console.log(lly.__proto__); //指向构造函数的原型对象
+        console.log(lly.__proto__ === Starts.prototype); //true
+    </script>
+</body>
+</html>

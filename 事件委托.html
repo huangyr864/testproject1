@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            background-color: aqua;
+        }
+        .content div {
+            width: 300px;
+            height: 200px;
+            display: none;
+            background-color: blanchedalmond;
+        }
+        .content .act {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="active" data-id="0">我是第一个孩子</li>
+        <li data-id="1">我是第二个孩子</li>
+        <li data-id="2">我是第三个孩子</li>
+        <li data-id="3">我是第四个孩子</li>
+        <li data-id="4">我是第五个孩子</li>
+        <p>hhhhhhhhhhhhhhh</p>
+    </ul>
+    <div class="content">
+        <div class="act">对应一</div>
+        <div>对应二</div>
+        <div>对应三</div>
+        <div>对应四</div>
+        <div>对应五</div>
+    </div>
+    <script>
+        const ul = document.querySelector('ul')
+        ul.addEventListener('click',function(e){
+            console.log(e.target);
+            if(e.target.tagName === 'LI') {
+                // e.target.style.color = 'yellow'
+                // 排他思想
+                document.querySelector('ul .active').classList.remove('active')
+                e.target.classList.add('active')
+                // document.querySelector('ul li:nth-child(3)').classList.add('active')
+
+                const i = e.target.dataset.id
+                divList = document.querySelectorAll('.content div')
+                document.querySelector('.content .act').classList.remove('act')
+                divList[i].classList.add('act')
+            }
+            // e.target.style.color = 'red'
+        })
+    </script>
+</body>
+</html>

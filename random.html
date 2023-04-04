@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>随机点名</h2>
+    <h3></h3>
+    <button click="getName()">随机点名</button>
+    <script>
+        let arr = ["小黄","小刘","小可","小河","小高","小明","小龙"]
+        let random = Math.floor(Math.random() * arr.length)
+        document.write(arr[random])
+        let btn = document.querySelector("button")
+        btn.onclick = function() {
+            let random = Math.floor(Math.random() * arr.length)
+            console.log(random);
+            document.querySelector('h3').innerHTML = arr[random]
+            arr.splice(random, 1)
+            console.log(arr);
+            return arr
+            
+        }
+        function getName(array){
+            let random = Math.floor(Math.random() * array.length)
+            document.write(array[random])
+            array.splice(random, 1)
+            return array 
+        }
+        arr = getName(arr)
+        console.log(arr);
+        // getName(arr)
+    </script>
+</body>
+</html>

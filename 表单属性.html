@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="全选" id="all" value="全选" data-id="newOne">全选
+    <div>
+        <input type="checkbox" name="" id="" class="ck">1
+        <input type="checkbox" name="" id="" class="ck">2
+        <input type="checkbox" name="" id="" class="ck">3
+        <input type="checkbox" name="" id="" class="ck">4
+    </div>
+    <script>
+        const lst = document.querySelectorAll('div input')
+        const all = document.querySelector('#all')
+        console.log(all.dataset.id);
+        // 全选按钮
+        all.onclick = function() {
+            // if(all.checked === true) {
+            //     for(let i = 0; i < lst.length ; i ++) {
+            //         lst[i].checked = true
+            //     }
+            // }else {
+            //     for(let i = 0; i < lst.length ; i ++) {
+            //         lst[i].checked = false
+            //     }
+            // }
+            for(let i = 0; i < lst.length ; i ++) {
+                    lst[i].checked = all.checked
+                }
+        }
+        // 当小复选框全选上是，全选框自动勾上
+        for(let i = 0; i < lst.length ; i ++) {
+            lst[i].addEventListener('click',function(){
+                console.log(document.querySelectorAll('.ck:checked').length);
+                if(document.querySelectorAll('.ck:checked').length === lst.length) {
+                    all.checked = true
+                }
+            })
+        }
+    </script>
+</body>
+</html>

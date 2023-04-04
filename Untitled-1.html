@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(let i = 1; i < 4; i++){
+            console.log(`第${i}天：`);
+            for(let num = 1; num <= 5; num ++){
+                console.log(`背第${num}个单词`);
+            }
+        }
+
+        for(let i = 0; i < 5; i++){
+            for(let j = 0; j <= i; j++){
+                document.write("⭐")
+            }
+            document.write(`<br>`)
+        }
+        
+        for(let i = 1; i < 10; i++){
+            for(let j = 1; j <= i; j++){
+                document.write(`${j} × ${i} = ${i*j}  `)
+            }
+            document.write(`<br>`)
+        }
+
+        let array = [2,33,4,56,23,112]
+        let max = array[0]
+        let min = array[0]
+        for(let i = 1; i < array.length; i ++){
+            max = max > array[i] ? max : array[i]
+            min = min < array[i] ? min : array[i]
+        }
+        console.log(max,min);
+
+        let sum = 1000
+        while(1) {
+            let req = +prompt (`请输入您的选项：
+                                    1.存钱
+                                    2.取钱
+                                    3.查看余额
+                                    4.退出
+                                `)
+            switch(req) {
+                case 1:
+                    let money = +prompt("请输入存钱数：")
+                    sum += money
+                    alert(`当前余额为：${sum}`)
+                    break
+                case 2:
+                    let mon = +prompt("请输入取钱数：")
+                    sum -= mon
+                    alert(`当前余额为：${sum}`)
+                    break
+                case 3:
+                    alert(`当前余额为：${sum}`)
+                    break
+                case 4:
+                    break
+            }
+            if(req === 4) {
+                break
+            }
+        }
+        let arr = ['小刘','小黄','小龙','小钱']
+        for(let i = 0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+        // while(1){
+        //     let answer = prompt('你爱我嘛？')
+        //     if(answer === '爱'){
+        //         alert("我也爱你")
+        //         break
+        //     }
+        // }
+    </script>
+    <!-- <script>
+        var var1 = 1; // 不可配置全局属性
+        var2 = 2; // 没有使用 var 声明，可配置全局属性
+
+        console.log(this.var1); // 1
+        console.log(window);
+        console.log(window.var2);
+        console.log(window.var1); // 1
+
+        delete var1; // false 无法删除
+        console.log(var1); //1
+
+        delete var2; 
+        console.log(delete var2); // true
+        console.log(var2); // 已经删除 报错变量未定义
+    </script> -->
+</body>
+</html>

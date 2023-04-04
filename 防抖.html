@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        const box = document.querySelector('.box')
+        let i = 1
+        // 鼠标移动 盒子中的数字+1
+        function mouseMove() {
+            box.innerHTML = i++
+            // 如果存在大量消耗性能的代码，比如dom操作，数据处理等可以采用防抖，执行最后一次操作
+        }
+
+        // 防抖
+        // lodash库的防抖函数 _.debounce
+        // box.addEventListener('mousemove',_.debounce(mouseMove,500))
+
+        // 手写防抖函数
+        function debounce(fn, t) {
+            let timer
+            return function() {
+                if(timer) {
+                    clearTimeout(timer)
+                }
+                timer = setTimeout(function(){
+                    fn()
+                }, t)
+            }
+        }
+        box.addEventListener('mousemove',debounce(mouseMove, 500))
+    </script>
+</body>
+</html>

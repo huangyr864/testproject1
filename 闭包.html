@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function outer() {
+            let a = 1
+            function fn() {
+                console.log(a);
+            }
+            return fn
+        }
+        const fun = outer()
+        fun()
+        // 外层函数访问使用内部函数的变量
+
+        // 闭包的应用 统计函数调用次数
+        // i 数据私有
+        function newOuter() {
+            let i = 0
+            function func() {
+                i++
+                console.log(`函数被调用了${i}次`);
+            }
+            return func
+        }
+        const func = newOuter()
+
+    </script>
+</body>
+</html>

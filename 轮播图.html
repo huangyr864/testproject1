@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1></h1>
+        <h3></h3>
+    </div>
+    <script>
+        const data = [
+            {
+                name : 'li',
+                age : 12
+            },
+            {
+                name : 'LL',
+                age : 19
+            },
+            {
+                name : 'JJ',
+                age : 21
+            },
+            {
+                name : 'KK',
+                age : 56
+            }
+        ]
+        const uname = document.querySelector('h1')
+        uname.innerHTML = data[0].name
+        const uage = document.querySelector('h3')
+        uage.innerHTML = data[0].age
+        let i = 0
+        let n = setInterval(function(){
+            i++
+            if(i >= data.length) {
+                i = 0
+            }
+            uname.innerHTML = data[i].name
+            uage.innerHTML = data[i].age
+            console.log(data[i]);
+            
+        },1000)
+        const div = document.querySelector('div')
+        div.onmouseover = function() {
+            clearInterval(n)
+        }
+    </script>
+</body>
+</html>

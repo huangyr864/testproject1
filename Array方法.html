@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        const arr = [
+            {
+                name : '小米',
+                price : 1999
+            },
+            {
+                name : '华为',
+                price : 3999
+            }
+        ]
+        const mi = arr.find(item => item.name === '小米')
+        console.log(mi);
+
+        // every 返回布尔值 true、false
+        const arr1 = [10, 20, 30]
+        const flag = arr1.every(item => item >= 10)
+        console.log(flag);
+
+        // join
+        const spec = { size: '40cm*40cm', color : '黑色'}
+        console.log(Object.values(spec));
+        console.log(Object.values(spec).join('/'));
+
+        // from
+        const lis = document.querySelectorAll('ul li')
+        console.log(lis);
+        // 将伪数组转换为真数组
+        const liss = Array.from(lis)
+        liss.pop()
+        console.log(liss);
+    </script>
+</body>
+</html>

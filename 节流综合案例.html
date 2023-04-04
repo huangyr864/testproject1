@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .video {
+            width: 700px;
+            height: 400px;
+        }
+        .video video {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="video">
+        <video src="https://v.itheima.net/LapADhV6.mp4" controls></video>
+    </div>
+    <script>
+        const video = document.querySelector('video')
+        // ontimeupdate 视频或音频当前播放位置发生改变时触发 需要节流
+        function memory() {
+            console.log(11);
+            console.log(video.currentTime);
+            // 本地存储当前视频的上一次的播放位置
+            localStorage.setItem('currentTime',video.currentTime)
+        }
+        video.ontimeupdate = throttle(memory, 1000)
+
+        function throttle(fn, t) {
+            let timer = null
+            return function() {
+                if(!timer) {
+                    timer = setTimeout(function() {
+                        fn()
+                        // 清除定时器
+                        timer = null
+                    }, t)
+                }
+            }
+        }
+
+        // 打开页面出发事件，从本地存储取出记录的时间，赋值给video.currentTime
+        video.onloadeddata = () => {
+            console.log(222);
+            video.currentTime = localStorage.getItem('currentTime') || 0
+        }
+    </script>
+</body>
+</html>

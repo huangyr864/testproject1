@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 100px;
+            height: 30px;
+            background-color: aqua;
+        }
+        .btn {
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>一等奖：<span id="one">???</span></h1>
+        <h2>二等奖：<span id="two">???</span></h2>
+        <h3>三等奖：<span id="three">???</span></h3>
+    </div>
+    <button>切换颜色</button>
+    <script>
+        const arr = ['刘德华','黄绮珊','张杰','那英','我自己']
+        const one  = document.querySelector("#one")
+        const two  = document.querySelector("#two")
+        const three  = document.querySelector("#three")
+        one.innerHTML = arr[getRandomIndex(arr)]
+        two.innerHTML = arr[getRandomIndex(arr)]
+        three.innerHTML = arr[getRandomIndex(arr)]
+        function getRandomIndex(array) {
+            const  random = Math.floor(Math.random() * array.length)
+            array.splice(random, 1)
+            console.log(array);
+            return random
+        }
+
+        // toggle有就删去，没有就添上
+        const btn = document.querySelector('button')
+        btn.onclick = function() {
+            btn.classList.toggle('btn')
+        }
+        
+    </script>
+</body>
+</html>

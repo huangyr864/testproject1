@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数
+        function Pig(uname, age) {
+            this.uname = uname
+            this.age = age
+        }
+        console.log(new Pig('乔治',6));
+        console.log(new Pig('佩奇',3));
+
+        // Object静态方法
+        const o = {name : 'Jolly',age : 12}
+        // 获取属性名
+        const arr = Object.keys(o)
+        console.log(arr);
+        console.log(Object.values(o));
+        const oo = {}
+        // 对象的拷贝
+        Object.assign(oo, o)
+        console.log(oo);
+        // 拷贝常用于追加属性
+        Object.assign(o, {gender : '女'})
+        console.log(o);
+
+</script>
+</body>
+</html>

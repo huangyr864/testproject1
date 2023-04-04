@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        span {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text">
+        <span>0/200字</span>
+        <button>发布</button>
+        <h2></h2>
+    </div>
+    
+    <script>
+        const div = document.querySelector('div')
+        const less = document.querySelector('span')
+        div.addEventListener('mouseenter', function() {
+            less.style.display = 'block'
+        })
+        div.addEventListener('mouseleave', function() {
+            less.style.display = 'none'
+        })
+        const input = document.querySelector('input')
+        input.addEventListener('input',function() {
+            console.log(input.value.length);
+            less.innerHTML = `${input.value.length}/200字`
+        })
+        input.addEventListener('keyup',function(e){
+            if(e.key === 'Enter'){
+                console.log(1111);
+                document.querySelector('h2').innerHTML = input.value
+                input.value = ''
+                less.innerHTML = '0/200字'
+            }
+        })
+    </script>
+</body>
+</html>

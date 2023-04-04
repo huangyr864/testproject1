@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            position: relative;
+            top : -80px;
+            transition: all .3s;
+            width: 100%;
+            height : 180px;
+            float: left;
+            background-color: aqua;
+            text-align: center;
+            line-height: 180px;
+        }
+        .content {
+            /* position: relative; */
+            overflow: hidden;
+            width: 90%;
+            height: 3000px;
+            background-color: bisque;
+            /* border: 0.1px solid black; */
+        }   
+        .sk {
+            /* position: relative; */
+            
+            width: 200px;
+            height: 200px;
+            margin-top : 800px;
+            /* float: left; */
+            background-color: pink;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">我是顶部导航栏</div>
+    <div class="content">
+        <div class="sk">秒杀模块</div>
+    </div>
+    <script>
+        const sk = document.querySelector('.sk')
+        const header = document.querySelector('.header')
+        window.addEventListener('scroll',function() {
+            console.log("scroll");
+            console.log(document.documentElement.scrollTop);
+            console.log(sk.offsetTop);
+            // 页面被卷去的头部 >= 秒杀模块的位置 offsetTop
+            const n = document.documentElement.scrollTop
+            if(n >= sk.offsetTop) {
+                header.style.top =  0
+            }
+        })
+    </script>
+</body>
+</html>

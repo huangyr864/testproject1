@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <p class="one"></p>
+    <h2>下课倒计时</h2>
+    <p class="clock">
+        <span id="hour">00</span>
+        <i>:</i>
+        <span id="minutes">25</span>
+        <i>:</i>
+        <span id="second">20</span>
+    </p>
+    <p>下课时间：18：30</p>
+    <script>
+        // 获取当前时间
+        const date = new Date()
+        console.log(date);
+
+        // 获取指定时间,用作实现倒计时
+        const date1 = new Date('2023-3-25 18：00：00')
+        console.log(date1);
+
+        const div = document.querySelector('div')
+        function getMyDate() {
+            const date = new Date()
+            let h = date.getHours()
+            let m = date.getMinutes()
+            let s = date.getSeconds()
+            h = h < 10 ? '0'+h : h
+            m = m < 10 ? '0'+m : m
+            s = s < 10 ? '0'+s : s
+            return `今天是：${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}号 ${h}:${m}:${s}`
+        }
+        div.innerHTML = getMyDate()
+        setInterval(function() {
+            div.innerHTML = getMyDate()
+        },1000)
+        const one = document.querySelector('.one')
+        one.innerHTML = date.toLocaleString()
+
+        getCountTime()
+        setInterval(getCountTime,1000)
+        // setInterval(function(){
+        //     getCountTime()
+        // },1000)
+        function getCountTime() {
+            // 倒计时
+            // 现在的时间戳
+            const now = +new Date()
+            // 将来的时间戳
+            const last = +new Date('2023-3-25 18:30:00')
+            // 剩余时间戳 转换为秒数
+            const count = (last - now) / 1000
+            console.log(count);
+            let hour = parseInt(count / 60 / 60 % 24)
+            let minute = parseInt(count / 60 % 60)
+            let second = parseInt(count % 60)
+            hour = hour < 10 ? '0'+hour : hour
+            minute = minute < 10 ? '0'+minute : minute
+            second = second < 10 ? '0'+second : second
+            console.log(hour, minute,second);
+            const Hour = document.querySelector('#hour')
+            Hour.innerHTML = hour
+            const Min = document.querySelector('#minutes')
+            Min.innerHTML = minute
+            const Second = document.querySelector('#second')
+            Second.innerHTML = second
+        }
+        
+</script>
+</body>
+</html>

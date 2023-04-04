@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            uname : 'pink老师',
+            age : 19
+        }
+        // 旧的变量名：新的变量名
+        const {uname: username, age} = obj
+        console.log(username);
+        console.log(age);
+
+        // 解构数组对象
+        const pig = [
+            {
+                uname : 'pigi',
+                ag : 2
+            }
+        ]
+        const [{uname,ag}] = pig
+        console.log(uname);
+        console.log(ag);
+
+        // forEach
+        const arr = ['red','green','pink']
+        arr.forEach(function(item,index) {
+            console.log(item);
+            console.log(index);
+        })
+    </script>
+</body>
+</html>
